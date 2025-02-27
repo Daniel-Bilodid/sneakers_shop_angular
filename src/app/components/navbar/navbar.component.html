@@ -13,8 +13,19 @@
     </div>
 
     <div class="nav__img-wrapper">
-      <img src="assets/icon-cart.svg" class="nav__cart" alt="cart" />
+      <button class="nav__btn-cart" (click)="toggleCart()">
+        <img src="assets/icon-cart.svg" class="nav__cart" alt="cart" />
+      </button>
       <img src="assets/image-avatar.png" class="nav__avatar" alt="avatar" />
     </div>
+
+    @if(isCartOpen) {
+    <div class="nav__cart-modal">
+      <div class="nav__cart-title">Cart</div>
+
+      <div class="nav__cart-hr"></div>
+      <div class="nav__cart-products">Your cart is empty.</div>
+    </div>
+    }
   </div>
 </div>

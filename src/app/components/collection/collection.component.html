@@ -1,0 +1,17 @@
+<p>collection works!</p>
+<div></div>
+<ul>
+  @for(product of data; track product.id) {
+  <li>
+    <img
+      class="collection__img"
+      src="{{ product.img }}"
+      alt="{{ product.name }}"
+    />
+    <p>{{ product.company }}</p>
+    <p>{{ product.name }}</p>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price }}</p>
+  </li>
+  }
+</ul>

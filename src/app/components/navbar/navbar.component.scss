@@ -2,7 +2,9 @@
 
 .nav {
   margin-top: 42px;
+
   &__wrapper {
+    position: relative;
     display: flex;
     gap: 12px;
     justify-content: space-between;
@@ -17,6 +19,7 @@
     gap: 40px;
     margin-top: -2px;
     &-item {
+      position: relative;
       color: rgb(105, 112, 125);
       font-family: $font-main;
       font-size: 15px;
@@ -24,6 +27,17 @@
       line-height: 26px;
       letter-spacing: 0px;
       text-align: left;
+      cursor: pointer;
+
+      &:hover::after {
+        content: "";
+        position: absolute;
+        bottom: -48px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgb(255, 126, 27);
+      }
     }
     &-wrapper {
       display: flex;
@@ -37,15 +51,71 @@
       gap: 42px;
     }
   }
-
+  &__btn {
+    &-cart {
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
   &__cart {
     width: 21.82px;
     height: 20px;
+    cursor: pointer;
+
+    &-modal {
+      position: absolute;
+      width: 360px;
+      height: 208px;
+      border-radius: 10px;
+
+      box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.1);
+      background: rgb(255, 255, 255);
+      padding-top: 24px;
+      padding-bottom: 24px;
+      right: 0;
+      top: 51px;
+    }
+    &-title {
+      margin-left: 12px;
+      color: rgb(29, 32, 38);
+      font-family: $font-main;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0px;
+      text-align: left;
+    }
+    &-hr {
+      width: 100%;
+      height: 1px;
+      background: rgb(228, 233, 242);
+      margin-top: 23px;
+    }
+    &-products {
+      display: flex;
+      justify-content: center;
+      margin-top: 73px;
+      color: rgb(105, 112, 125);
+      font-family: $font-main;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0px;
+      text-align: center;
+    }
   }
 
   &__avatar {
     width: 50px;
     height: 50px;
     margin-top: -15px;
+    cursor: pointer;
+    &:hover {
+      box-sizing: border-box;
+      outline: 2px solid rgb(255, 126, 27);
+      border-radius: 100%;
+    }
   }
 }

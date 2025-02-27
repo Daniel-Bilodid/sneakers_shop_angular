@@ -1,45 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { initializeApp } from 'firebase/app';
-import {
-  Firestore,
-  getFirestore,
-  collection,
-  getDocs,
-} from 'firebase/firestore';
-import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http'; // Подключаем модуль
+import { ShoesService } from './shoes.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CollectionComponent } from './components/collection/collection.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [NavbarComponent, ProductCardComponent],
+  imports: [
+    NavbarComponent,
+    ProductCardComponent,
+    CollectionComponent,
+    HttpClientModule,
+  ],
 })
 export class AppComponent implements OnInit {
   title = 'ecommerce-frontend';
-  private firestore!: Firestore;
+  shoesData: any[] = [];
 
-  constructor() {
-    const firebaseApp = initializeApp(environment.firebaseConfig);
-    this.firestore = getFirestore(firebaseApp);
-  }
+  constructor(private shoesService: ShoesService) {}
 
-  async ngOnInit(): Promise<void> {
-    try {
-      const productsCollection = collection(this.firestore, 'products');
-      const snapshot = await getDocs(productsCollection);
-
-      if (snapshot.empty) {
-        console.log('Коллекция "products" пуста.');
-      } else {
-        snapshot.forEach((doc) => {
-          console.log('Документ:', doc.id, doc.data());
-        });
-      }
-    } catch (error) {
-      console.error('Ошибка при получении данных:', error);
-    }
+  ngOnInit(): void {
+    this.shoesService.getShoes().subscribe((shoes) => {
+      this.shoesData = shoes;
+    });
   }
 }

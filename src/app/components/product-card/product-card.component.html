@@ -24,12 +24,14 @@
         <div class="product__buttons-quantity">
           <button
             class="product__buttons-quantity-btn product__buttons-quantity-btn--minus"
+            (click)="onDecreaseAmount()"
           >
             <img src="assets/icon-minus.svg" alt="minus" />
           </button>
-          <span class="product__buttons-quantity-count">0</span>
+          <span class="product__buttons-quantity-count">{{ amount }}</span>
           <button
             class="product__buttons-quantity-btn product__buttons-quantity-btn--plus"
+            (click)="onIncreaseAmount()"
           >
             <img src="assets/icon-plus.svg" alt="plus" />
           </button>
