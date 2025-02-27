@@ -8,13 +8,14 @@ import {
 } from 'firebase/firestore';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, ProductCardComponent],
 })
 export class AppComponent implements OnInit {
   title = 'ecommerce-frontend';

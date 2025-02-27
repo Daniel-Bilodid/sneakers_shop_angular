@@ -1,0 +1,158 @@
+@use "../../../styles/variables.scss" as *;
+
+.product {
+  margin-top: 96px;
+  &__wrapper {
+    display: flex;
+    gap: 128px;
+  }
+
+  &__img img {
+    width: 448px;
+    height: 445px;
+    border-radius: 15px;
+    margin-left: 40px;
+  }
+  &__description {
+    &-company {
+      color: rgb(105, 112, 125);
+      font-family: $font-main;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 2px;
+      text-align: left;
+      text-transform: uppercase;
+      margin-top: 66.5px;
+    }
+
+    &-title {
+      /* Text Preset 1 - Kumbh Sans Bold - 44px - 48px Line Height - 0px Line Spacing */
+      color: rgb(29, 32, 38);
+      font-family: $font-main;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 48px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-top: 24px;
+    }
+
+    &-text {
+      /* Text Preset 3 - Kumbh Sans Regular - 16px - 26px Line Height - 0px Line Spacing */
+      color: rgb(105, 112, 125);
+      font-family: $font-main;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-top: 32px;
+    }
+
+    &-price {
+      /* Text Preset 2 - Kumbh Sans Bold - 28px - 32px Line Height - 0px Line Spacing */
+      color: rgb(29, 32, 38);
+      font-family: $font-main;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 32px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-top: 32px;
+    }
+    &-wrapper {
+      display: flex;
+    }
+    &-percent {
+      display: block;
+      width: 51px;
+      height: 27px;
+      border-radius: 6px;
+
+      background: rgb(29, 32, 38);
+      color: rgb(255, 255, 255);
+      font-family: Kumbh Sans;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0px;
+      text-align: left;
+      margin-left: 22px;
+      margin-top: 27px;
+      span {
+        margin-left: 9.5px;
+      }
+    }
+    &-discount {
+      color: rgb(105, 112, 125);
+      font-family: $font-main;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0px;
+      text-align: left;
+      text-decoration-line: line-through;
+      margin-top: 8px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 30px;
+    &-quantity {
+      display: flex;
+      justify-content: space-between;
+      width: 140px;
+      height: 22px;
+      border-radius: 10px;
+
+      background: rgb(246, 248, 253);
+      padding: 16px 8px 16px 8px;
+
+      &-btn {
+        background: none;
+        border: none;
+        color: rgb(255, 126, 27);
+        &--minus {
+          margin-top: -5px;
+        }
+        &--plus {
+          margin-top: 2px;
+        }
+      }
+
+      &-count {
+        width: 10px;
+        height: 26px;
+        color: rgb(29, 32, 38);
+        font-family: $font-main;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0px;
+        text-align: center;
+        margin-top: -2px;
+      }
+    }
+    &-cart {
+      width: 272px;
+      height: 56px;
+      border-radius: 10px;
+
+      box-shadow: 0px 20px 50px -20px rgba(255, 126, 27, 0.25);
+      background: rgb(255, 126, 27);
+      border: none;
+      margin-left: 16px;
+      color: rgb(29, 32, 38);
+      span {
+        font-family: $font-main;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0px;
+        text-align: left;
+      }
+    }
+  }
+}
