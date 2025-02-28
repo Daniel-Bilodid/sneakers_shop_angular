@@ -1,24 +1,35 @@
+@if(selectedProduct) {
 <div class="product">
   <div class="product__wrapper">
     <div class="product__img">
-      <img src="assets/image-product-1.jpg" alt="" />
+      <img [src]="selectedProduct.img" [alt]="selectedProduct.name" />
     </div>
 
     <div class="product__description">
-      <div class="product__description-company">Sneaker Company</div>
+      <div class="product__description-company">
+        {{ selectedProduct.company }}
+      </div>
       <div class="product__description-title">
-        Fall Limited Edition Sneakers
+        {{ selectedProduct.name }}
       </div>
       <div class="product__description-text">
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they’ll withstand everything the
-        weather can offer.
+        {{ selectedProduct.description }}
       </div>
       <div class="product__description-wrapper">
-        <div class="product__description-price">$125.00</div>
-        <div class="product__description-percent"><span>50%</span></div>
+        <div class="product__description-price">
+          ${{ selectedProduct.price }}
+        </div>
+        @if(selectedProduct.discount_percent) {
+        <div class="product__description-percent">
+          <span>{{ selectedProduct.discount_percent }}%</span>
+        </div>
+        }
       </div>
-      <div class="product__description-discount">$250.00</div>
+      @if(selectedProduct.price_with_discount) {
+      <div class="product__description-discount">
+        ${{ selectedProduct.price_with_discount }}
+      </div>
+      }
 
       <div class="product__buttons">
         <div class="product__buttons-quantity">
@@ -44,3 +55,4 @@
     </div>
   </div>
 </div>
+}

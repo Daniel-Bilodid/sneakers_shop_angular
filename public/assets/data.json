@@ -1,12 +1,13 @@
 [
   {
     "id": 1,
-    "img": "https://allstars.ua/upload/iblock/4de/4dee149c5242c2ff6f9f4e4a97613ab0.jpg",
+    "img": "https://yesoriginal.com.ua/image/cache/catalog/i/cm/db/49e6825f19c3906eb9ca8a265ac362c6-1215x1280.webp",
     "company": "Nike",
     "name": "Nike Air Max 270",
     "description": "Stylish and comfortable, perfect for everyday wear with a modern design.",
     "price_with_discount": 99.99,
-    "price": 120.0
+    "price": 120.0,
+    "discount_percent": 17
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "name": "Adidas Ultraboost 21",
     "description": "Comfortable running shoes with responsive cushioning for maximum performance.",
     "price_with_discount": 129.99,
-    "price": 160.0
+    "price": 160.0,
+    "discount_percent": 19
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "name": "Puma RS-X3 Puzzle",
     "description": "Chunky sneakers with a mix of colors, adding a bold look to your wardrobe.",
     "price_with_discount": 89.99,
-    "price": 100.0
+    "price": 100.0,
+    "discount_percent": 10
   },
   {
     "id": 4,
@@ -33,16 +36,18 @@
     "name": "Reebok Nano X1",
     "description": "Crossfit shoes designed for versatility, offering comfort and durability.",
     "price_with_discount": 109.99,
-    "price": 130.0
+    "price": 130.0,
+    "discount_percent": 15
   },
   {
     "id": 5,
-    "img": "https://newbalance.ua/img/photos/2aa2d27aeeeef4cd1cc8553722547e35.jpg",
+    "img": "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/66f12fa9dcb39-6389105.jpeg",
     "company": "New Balance",
     "name": "New Balance 574 Classic",
     "description": "Classic sneakers with a timeless design, suitable for all-day wear.",
     "price_with_discount": 69.99,
-    "price": 80.0
+    "price": 80.0,
+    "discount_percent": 13
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "name": "Converse Chuck Taylor All Star",
     "description": "Iconic canvas sneakers with a casual and versatile design.",
     "price_with_discount": 44.99,
-    "price": 55.0
+    "price": 55.0,
+    "discount_percent": 18
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "name": "Under Armour HOVR Phantom 2",
     "description": "Running shoes with excellent cushioning and energy return for a smooth run.",
     "price_with_discount": 120.0,
-    "price": 150.0
+    "price": 150.0,
+    "discount_percent": 20
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "name": "Saucony Endorphin Speed 2",
     "description": "Performance shoes designed for speed with a responsive feel.",
     "price_with_discount": 139.99,
-    "price": 170.0
+    "price": 170.0,
+    "discount_percent": 18
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "name": "Asics Gel-Kayano 27",
     "description": "Supportive running shoes with excellent cushioning and stability.",
     "price_with_discount": 139.0,
-    "price": 160.0
+    "price": 160.0,
+    "discount_percent": 13
   },
   {
     "id": 10,
@@ -87,6 +96,7 @@
     "name": "Nike ZoomX Vaporfly Next% 2",
     "description": "High-performance running shoes designed for elite athletes and speed.",
     "price_with_discount": 249.99,
-    "price": 300.0
+    "price": 300.0,
+    "discount_percent": 17
   }
 ]

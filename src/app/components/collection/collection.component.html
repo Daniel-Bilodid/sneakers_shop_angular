@@ -1,17 +1,20 @@
-<p>collection works!</p>
-<div></div>
-<ul>
-  @for(product of data; track product.id) {
-  <li>
-    <img
-      class="collection__img"
-      src="{{ product.img }}"
-      alt="{{ product.name }}"
-    />
-    <p>{{ product.company }}</p>
-    <p>{{ product.name }}</p>
-    <p>{{ product.description }}</p>
-    <p>{{ product.price }}</p>
-  </li>
-  }
-</ul>
+<div class="collection">
+  <ul class="collection__list">
+    @for(product of data; track product.id) {
+    <li class="collection__list-item" (click)="onProductClick(product.id)">
+      <div class="product-card">
+        <img
+          class="collection__img"
+          src="{{ product.img }}"
+          alt="{{ product.name }}"
+        />
+        <div class="product-info">
+          <p class="product-company">{{ product.company }}</p>
+          <p class="product-name">{{ product.name }}</p>
+          <p class="product-price">${{ product.price }}</p>
+        </div>
+      </div>
+    </li>
+    }
+  </ul>
+</div>
