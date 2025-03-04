@@ -4,7 +4,7 @@
       <img src="assets/logo.svg" class="nav__logo" alt="Logo" />
 
       <ul class="nav__list">
-        <li class="nav__list-item">Collections</li>
+        <li class="nav__list-item" (click)="goToCollection()">Collections</li>
         <li class="nav__list-item">Men</li>
         <li class="nav__list-item">Women</li>
         <li class="nav__list-item">About</li>
@@ -24,7 +24,9 @@
       <div class="nav__cart-title">Cart</div>
 
       <div class="nav__cart-hr"></div>
-      <div class="nav__cart-products">Your cart is empty.</div>
+      <div class="nav__cart-products">
+        {{ amount ? amount : "Your cart is empty." }}
+      </div>
     </div>
     }
   </div>
