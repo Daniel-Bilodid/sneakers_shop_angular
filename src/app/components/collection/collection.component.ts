@@ -1,17 +1,28 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { ShoesService } from '../../shoes.service';
 import { Product } from './collection.model';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-collection',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './collection.component.html',
-  styleUrl: './collection.component.scss',
+  styleUrls: ['./collection.component.scss'],
 })
-export class CollectionComponent {
-  @Input() data: Product[] = [];
-  @Output() selectedProduct = new EventEmitter<number>();
+export class CollectionComponent implements OnInit {
+  data: Product[] = [];
+
+  constructor(private router: Router, private shoesService: ShoesService) {}
+
+  ngOnInit() {
+    this.shoesService.getShoes().subscribe((shoes) => {
+      this.data = shoes;
+    });
+  }
 
   onProductClick(productId: number) {
-    console.log('Clicked product ID:', productId);
-    this.selectedProduct.emit(productId);
+    this.router.navigate(['/product', productId]);
   }
 }

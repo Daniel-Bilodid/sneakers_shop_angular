@@ -1,12 +1,6 @@
 <div class="app">
   <app-navbar />
   <div class="hr"></div>
-  @if(selectedProduct) {
-  <app-product-card [productId]="selectedProduct" [data]="shoesData" />
-  } @else {
-  <app-collection
-    [data]="shoesData"
-    (selectedProduct)="handleProductSelection($event)"
-  ></app-collection>
-  }
+
+  <router-outlet></router-outlet>
 </div>
