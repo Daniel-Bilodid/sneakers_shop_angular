@@ -25,8 +25,8 @@
 
       <div class="nav__cart-hr"></div>
       <div class="nav__cart-products">
-        @if(selectedProduct) { @for(product of selectedProduct; track
-        product.id) {
+        @for(product of selectedProduct; track product.id) {
+
         <div class="nav__cart-wrapper">
           <div class="nav__cart-img">
             <img [src]="product.img" [alt]="product.name" />
@@ -37,16 +37,18 @@
             </div>
 
             <div class="nav__cart-text-price">
-              ${{ product.price }}.00 x {{ amount }}
-              <span>${{ +product.price * +amount }}.00</span>
+              ${{ product.price }}.00 x {{ getAmountForProduct(product.id) }}
+              <span
+                >${{
+                  +product.price * getAmountForProduct(product.id)
+                }}.00</span
+              >
             </div>
           </div>
           <div class="nav__cart-text-delete">
             <img src="assets/icon-delete.svg" alt="delete" />
           </div>
         </div>
-        } } @else {
-        <div>Your cart is empty.</div>
         }
       </div>
       @if(selectedProduct) {

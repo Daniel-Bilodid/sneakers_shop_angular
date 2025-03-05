@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartService } from '../service/cart.service';
+
 import { ProductService } from '../service/product.service';
 import { Product } from '../collection/collection.model';
 @Component({
@@ -11,22 +11,13 @@ import { Product } from '../collection/collection.model';
 })
 export class NavbarComponent {
   isCartOpen = false;
-  amount = 0;
   selectedProduct: Product[] = [];
 
-  constructor(
-    private router: Router,
-    private cartService: CartService,
-    private productService: ProductService
-  ) {}
+  constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit() {
-    this.cartService.amount$.subscribe((newAmount) => {
-      this.amount = newAmount;
-    });
-
-    this.productService.product$.subscribe((newProduct) => {
-      this.selectedProduct = newProduct;
+    this.productService.product$.subscribe((newProducts) => {
+      this.selectedProduct = newProducts;
     });
   }
 
@@ -35,5 +26,8 @@ export class NavbarComponent {
   }
   toggleCart() {
     this.isCartOpen = !this.isCartOpen;
+  }
+  getAmountForProduct(productId: number): number {
+    return this.productService.getAmount(productId);
   }
 }
