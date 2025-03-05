@@ -12,7 +12,7 @@ import { Product } from '../collection/collection.model';
 export class NavbarComponent {
   isCartOpen = false;
   amount = 0;
-  selectedProduct: Product | null = null;
+  selectedProduct: Product[] = [];
 
   constructor(
     private router: Router,

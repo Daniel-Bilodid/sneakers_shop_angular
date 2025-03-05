@@ -6,10 +6,21 @@ import { Product } from '../collection/collection.model';
   providedIn: 'root',
 })
 export class ProductService {
-  private productSource = new BehaviorSubject<Product | null>(null);
+  private productSource = new BehaviorSubject<Product[]>([]);
   product$ = this.productSource.asObservable();
 
   updateProduct(newProduct: Product) {
-    this.productSource.next(newProduct);
+    const currentProducts = this.productSource.value;
+
+    const productIndex = currentProducts.findIndex(
+      (product) => product.id === newProduct.id
+    );
+    if (productIndex !== -1) {
+      currentProducts[productIndex] = newProduct;
+    } else {
+      currentProducts.push(newProduct);
+    }
+
+    this.productSource.next([...currentProducts]);
   }
 }

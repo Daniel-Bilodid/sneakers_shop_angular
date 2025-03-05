@@ -104,7 +104,7 @@
     &-modal {
       position: absolute;
       width: 336px;
-      height: 208px;
+      height: auto;
       border-radius: 10px;
       padding-left: 24px;
       box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.1);
@@ -131,8 +131,6 @@
       margin-top: 23px;
     }
     &-products {
-      display: flex;
-      justify-content: flex-start;
       margin-top: 26px;
       color: rgb(105, 112, 125);
       font-family: $font-main;
