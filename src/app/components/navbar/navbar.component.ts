@@ -1,33 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { ProductService } from '../service/product.service';
+import { CartService } from '../service/cart.service';
 import { Product } from '../collection/collection.model';
+
 @Component({
   selector: 'app-navbar',
-  imports: [],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isCartOpen = false;
-  selectedProduct: Product[] = [];
+  cartProducts: any[] = [];
 
-  constructor(private router: Router, private productService: ProductService) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit() {
-    this.productService.product$.subscribe((newProducts) => {
-      this.selectedProduct = newProducts;
-    });
+    this.loadCart();
   }
 
-  goToCollection() {
+  loadCart(): void {
+    this.cartProducts = this.cartService.getCart();
+  }
+
+  goToCollection(): void {
     this.router.navigate(['/collection']);
   }
-  toggleCart() {
+
+  toggleCart(): void {
     this.isCartOpen = !this.isCartOpen;
+
+    if (this.isCartOpen) {
+      this.loadCart();
+    }
   }
+
   getAmountForProduct(productId: number): number {
-    return this.productService.getAmount(productId);
+    return this.cartService.getAmountForProduct(productId);
+  }
+
+  removeFromCart(productId: number): void {
+    this.cartService.removeFromCart(productId);
+    this.loadCart();
   }
 }

@@ -25,7 +25,7 @@
 
       <div class="nav__cart-hr"></div>
       <div class="nav__cart-products">
-        @for(product of selectedProduct; track product.id) {
+        @for(product of cartProducts; track product.id) {
 
         <div class="nav__cart-wrapper">
           <div class="nav__cart-img">
@@ -37,23 +37,21 @@
             </div>
 
             <div class="nav__cart-text-price">
-              ${{ product.price }}.00 x {{ getAmountForProduct(product.id) }}
-              <span
-                >${{
-                  +product.price * getAmountForProduct(product.id)
-                }}.00</span
-              >
+              ${{ product.price }}.00 x {{ product.amount }}
+              <span>${{ product.price * product.amount }}.00</span>
             </div>
           </div>
-          <div class="nav__cart-text-delete">
+          <div
+            class="nav__cart-text-delete"
+            (click)="removeFromCart(product.id)"
+          >
             <img src="assets/icon-delete.svg" alt="delete" />
           </div>
         </div>
         }
       </div>
-      @if(selectedProduct) {
+
       <button class="nav__cart-checkout">Checkout</button>
-      }
     </div>
     }
   </div>

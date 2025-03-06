@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ShoesService } from '../../shoes.service';
 import { Product } from '../collection/collection.model';
 
+import { CartService } from '../service/cart.service';
 import { ProductService } from '../service/product.service';
 import { CommonModule } from '@angular/common';
 
@@ -21,7 +22,8 @@ export class ProductCardComponent implements OnInit {
     private route: ActivatedRoute,
     private shoesService: ShoesService,
 
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -56,6 +58,8 @@ export class ProductCardComponent implements OnInit {
 
   addToCart() {
     if (this.selectedProduct && this.amount > 0) {
+      this.cartService.addToCart(this.selectedProduct, this.amount);
+
       this.productService.updateAmount(this.selectedProduct.id, this.amount);
       this.productService.updateProduct(this.selectedProduct);
     }
