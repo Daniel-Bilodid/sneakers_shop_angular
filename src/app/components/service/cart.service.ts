@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../collection/collection.model';
+import { CartProduct } from '../collection/collection.model';
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  getCart(): any[] {
+  getCart(): CartProduct[] {
     return JSON.parse(localStorage.getItem('cart') || '[]');
   }
 
-  addToCart(product: any, amount: number): void {
+  addToCart(product: CartProduct, amount: number): void {
     const cartData = this.getCart();
     const existingProductIndex = cartData.findIndex(
       (item: { id: number }) => item.id === product.id

@@ -9,3 +9,11 @@ export interface Product {
   price_with_discount: number;
   discount_percent: number;
 }
+
+export interface CartProduct {
+  id: number;
+  name: string;
+  price: number;
+  amount: number;
+  img: string;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../service/cart.service';
-import { Product } from '../collection/collection.model';
+import { CartProduct } from '../collection/collection.model';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +10,7 @@ import { Product } from '../collection/collection.model';
 })
 export class NavbarComponent implements OnInit {
   isCartOpen = false;
-  cartProducts: any[] = [];
+  cartProducts: CartProduct[] = [];
 
   constructor(private router: Router, private cartService: CartService) {}
 
